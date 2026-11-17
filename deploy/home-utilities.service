@@ -1,0 +1,17 @@
+[Unit]
+Description=Home Utilities BACnet/IP gateway
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=simple
+DynamicUser=yes
+WorkingDirectory=/opt/home-utilities
+EnvironmentFile=/etc/home-utilities/gateway.env
+ExecStart=/opt/home-utilities/.venv/bin/python -m home_utilities.server
+Restart=on-failure
+RestartSec=5s
+NoNewPrivileges=yes
+
+[Install]
+WantedBy=multi-user.target

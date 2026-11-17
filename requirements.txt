@@ -1,0 +1,2 @@
+bacpypes3==0.0.106
+rdflib==7.6.0
